@@ -1,0 +1,5 @@
+c:\dev\Eventer\Eventer\bin\Debug\Eventer.dll
+c:\dev\Eventer\Eventer\bin\Debug\Eventer.pdb
+c:\dev\Eventer\Eventer\obj\Debug\Eventer.dll
+c:\dev\Eventer\Eventer\obj\Debug\Eventer.pdb
+c:\DEV\Eventer\Eventer\obj\Debug\Eventer.csprojResolveAssemblyReference.cache

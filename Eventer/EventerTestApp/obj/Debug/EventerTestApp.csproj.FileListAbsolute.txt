@@ -1,0 +1,11 @@
+c:\DEV\Eventer\EventerTestApp\bin\Debug\EventerTestApp.exe.config
+c:\DEV\Eventer\EventerTestApp\obj\Debug\EventerTestApp.csprojResolveAssemblyReference.cache
+c:\DEV\Eventer\EventerTestApp\bin\Debug\EventerTestApp.exe
+c:\DEV\Eventer\EventerTestApp\bin\Debug\EventerTestApp.pdb
+c:\DEV\Eventer\EventerTestApp\bin\Debug\Eventer.dll
+c:\DEV\Eventer\EventerTestApp\bin\Debug\Eventer.pdb
+c:\DEV\Eventer\EventerTestApp\obj\Debug\EventerTestApp.exe
+c:\DEV\Eventer\EventerTestApp\obj\Debug\EventerTestApp.pdb
+E:\GitHub\Eventer4Splunk\Eventer\EventerTestApp\bin\Debug\EventerTestApp.exe.config
+E:\GitHub\Eventer4Splunk\Eventer\EventerTestApp\obj\Debug\EventerTestApp.exe
+E:\GitHub\Eventer4Splunk\Eventer\EventerTestApp\obj\Debug\EventerTestApp.pdb
