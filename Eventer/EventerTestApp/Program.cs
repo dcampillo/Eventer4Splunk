@@ -14,13 +14,13 @@ namespace EventerTestApp
     {
         static void Main(string[] args)
         {
-            Console.Write("Output to splunk [y]es / [n]o ? ");
-            ConsoleKeyInfo _key = Console.ReadKey();
-            GenerateLogs(_key);
+            Console.WriteLine("Eventer4Splunk Test Application");
+            Console.WriteLine("---------------------------------\n");
+            GenerateLogs();
             Console.ReadKey();
         }
 
-        static void GenerateLogs(ConsoleKeyInfo Key)
+        static void GenerateLogs()
         {
             EventFactory _e = new EventFactory("LogGeneratorSample", true);
 
@@ -35,23 +35,13 @@ namespace EventerTestApp
             // Fill the newly created event
             _ev["message"].Value = "This is a sample message";
             _ev["level"].Value = "verbose";
-            _ev["status"].Value = "OK";
+            _ev["status"].SetValue(200);
 
-            if (Key.KeyChar == char.Parse("y"))
-            {
-                TcpClient _t = new TcpClient("splunkmaster.zorglub.local", 4646);
-                StreamWriter _sw = new StreamWriter(_t.GetStream());
-                // Flush events as string
-                _sw.Write(_e.Flush());
-                _sw.Flush();
-                _sw.Close();
-            }
-            else
-            {
-                Console.WriteLine("\n" + _e.Flush());
-            }
-            
 
+            Console.WriteLine("\n" + _e.Flush());
+
+
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
 
 

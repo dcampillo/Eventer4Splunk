@@ -11,15 +11,15 @@ namespace DotNetEventer
     {
 
         private bool _isNumber = false;
-        private string _fieldName = string.Empty;
-        private string _fieldValue = string.Empty;
+        private string _fieldName = null;
+        private string _fieldValue = null;
 
         /// <summary>
         /// Initialize a new event field
         /// </summary>
         /// <param name="Name">Name of the field</param>
         public EventField(string Name)
-            : this(Name, string.Empty)
+            : this(Name, null)
         {
 
         }
@@ -30,7 +30,7 @@ namespace DotNetEventer
         /// <param name="Name">Name of the field</param>
         /// <param name="IsNumber">Indicated if this field should be considered as number</param>
         public EventField(string Name, bool IsNumber)
-            : this(Name, string.Empty)
+            : this(Name, null)
         {
             _isNumber = IsNumber;
         }

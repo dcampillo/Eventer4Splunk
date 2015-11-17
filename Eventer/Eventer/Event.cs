@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DotNetEventer
 {
@@ -8,11 +9,11 @@ namespace DotNetEventer
     {
         List<EventField> _fields = new List<EventField>();
         private DateTime _timeStamp = DateTime.Now;
-        
+
 
         public Event()
         {
-        
+
         }
 
         /// <summary>
@@ -67,17 +68,18 @@ namespace DotNetEventer
         /// <returns>A string representing the event in a Splunk format</returns>
         public string Render()
         {
-            
+
             StringBuilder _sb = new StringBuilder();
-            
+
             _sb.Append(string.Format("{0:o} ", _timeStamp));
-            
-             
 
             //Append every existing fields
             foreach (DotNetEventer.EventField _field in Fields)
             {
-                _sb.Append(string.Format("{0}={1} ", _field.Name, FormatValue(_field)));
+                if (_field.Value != null)
+                {
+                    _sb.Append(string.Format("{0}={1} ", _field.Name, FormatValue(_field)));
+                }
             }
 
             return _sb.ToString().TrimEnd();
@@ -91,24 +93,29 @@ namespace DotNetEventer
         /// <returns>A string representing a formated value</returns>
         private string FormatValue(DotNetEventer.EventField EventField)
         {
+
+
             if (EventField.IsNumber)
             {
                 return EventField.Value;
             }
             else
             {
-                if (EventField.Value.Contains(" "))
-                {
-                    return string.Format("\"{0}\"", EventField.Value);
-                }
-                else
+                Regex regexItem = new Regex("^[a-zA-Z0-9]*$");
+
+                if (regexItem.IsMatch(EventField.Value))
                 {
                     return EventField.Value;
                 }
+                else
+                {
+                    return string.Format("\"{0}\"", EventField.Value);
+                }
             }
+
         }
 
-        
+
 
     }
 }

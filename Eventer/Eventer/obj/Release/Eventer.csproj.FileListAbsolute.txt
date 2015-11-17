@@ -1,0 +1,13 @@
+C:\DEV\Eventer4Splunk-master\Eventer\Eventer\bin\Release\Eventer.dll
+C:\DEV\Eventer4Splunk-master\Eventer\Eventer\bin\Release\Eventer.pdb
+C:\DEV\Eventer4Splunk-master\Eventer\Eventer\obj\Release\Eventer.dll
+C:\DEV\Eventer4Splunk-master\Eventer\Eventer\obj\Release\Eventer.pdb
+C:\DEV\Eventer4Splunk-master\Eventer\Eventer\obj\Release\Eventer.csprojResolveAssemblyReference.cache
+K:\Eventer4Splunk-master\Eventer\Eventer\bin\Release\Eventer4Splunk.dll
+K:\Eventer4Splunk-master\Eventer\Eventer\bin\Release\Eventer4Splunk.pdb
+K:\Eventer4Splunk-master\Eventer\Eventer\obj\Release\Eventer4Splunk.dll
+K:\Eventer4Splunk-master\Eventer\Eventer\obj\Release\Eventer4Splunk.pdb
+C:\Dev\Eventer4Splunk\Eventer4Splunk\Eventer\Eventer\bin\Release\Eventer.dll
+C:\Dev\Eventer4Splunk\Eventer4Splunk\Eventer\Eventer\bin\Release\Eventer.pdb
+C:\Dev\Eventer4Splunk\Eventer4Splunk\Eventer\Eventer\obj\Release\Eventer.dll
+C:\Dev\Eventer4Splunk\Eventer4Splunk\Eventer\Eventer\obj\Release\Eventer.pdb

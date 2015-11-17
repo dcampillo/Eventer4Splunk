@@ -12,7 +12,7 @@ namespace DotNetEventer
 
         private List<EventFieldDefinition> _fields = new List<EventFieldDefinition>();
         private bool _appendCorrelationID = false;
-        private Guid _correlationID = Guid.NewGuid();
+        private string _correlationID = Guid.NewGuid().ToString();
         private string _correlationIDFieldName = "correlationid";
         private const string _applicationNameField = "application";
         private string _applicationName;
@@ -73,7 +73,7 @@ namespace DotNetEventer
 
             if (SetNewCorrelationID)
             {
-                _correlationID = Guid.NewGuid();
+                _correlationID = Guid.NewGuid().ToString();
             }
 
             //_event.Fields.Add(new EventField(_timestampFieldName, DateTime.Now.ToString()));
@@ -102,7 +102,7 @@ namespace DotNetEventer
 
         public string GenerateNewCorrelationID()
         {
-            _correlationID = Guid.NewGuid();
+            _correlationID = Guid.NewGuid().ToString();
             return _correlationID.ToString();
         }
 
@@ -136,6 +136,17 @@ namespace DotNetEventer
             }
         }
 
+        public string CorrelationID
+        {
+            get
+            {
+                return _correlationID;
+            }
+            set
+            {
+                _correlationID = value;
+            }
+        }
 
         /// <summary>
         /// Render all events
