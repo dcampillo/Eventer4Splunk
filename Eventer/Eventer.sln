@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventer", "Eventer\Eventer.csproj", "{16F3DD02-81F6-4D83-A456-B235CFD35EB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventerTestApp", "EventerTestApp\EventerTestApp.csproj", "{33745374-6341-48A6-85FA-0571B83CEBD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventerDemoApp", "EventerTestApp\EventerDemoApp.csproj", "{33745374-6341-48A6-85FA-0571B83CEBD4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventerUnitTest", "EventerUnitTest\EventerUnitTest.csproj", "{3C49B9CA-4EF7-4CA2-945F-E2A1D11D410C}"
 EndProject
