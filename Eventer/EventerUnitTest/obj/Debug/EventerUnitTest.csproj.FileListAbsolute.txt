@@ -1,0 +1,7 @@
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\bin\Debug\EventerUnitTest.dll
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\bin\Debug\EventerUnitTest.pdb
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\bin\Debug\Eventer.dll
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\bin\Debug\Eventer.pdb
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\obj\Debug\EventerUnitTest.csprojResolveAssemblyReference.cache
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\obj\Debug\EventerUnitTest.dll
+C:\GitHub\Eventer4Splunk\Eventer\EventerUnitTest\obj\Debug\EventerUnitTest.pdb
