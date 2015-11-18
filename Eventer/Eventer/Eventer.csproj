@@ -43,9 +43,15 @@
     <Compile Include="EventQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="NuGet\Eventer4Splunk.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NuGet\Content\DotNetEventer\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>rem copy $(TargetPath) $(SolutionDir)\Eventer.Packager\lib</PostBuildEvent>
+    <PostBuildEvent>copy $(ProjectDir)\*.cs $(ProjectDir)\Nuget\Content\DotNetEventer</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
