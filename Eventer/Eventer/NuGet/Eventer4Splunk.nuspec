@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Eventer4Splunk</id>
+    <version>1.1.26</version>
+    <authors>David</authors>
+    <owners>David</owners>
+    <licenseUrl>https://github.com/dcampillo/Eventer4Splunk/blob/master/MIT-LICENSE</licenseUrl>
+    <projectUrl>https://github.com/dcampillo/Eventer4Splunk</projectUrl>
+    <iconUrl>https://avatars3.githubusercontent.com/u/2921284</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Eventer4Splunk is a c# library aimed to ease writing logs in the Splunk format</description>
+    <releaseNotes>Release 1.1</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Splunk</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
