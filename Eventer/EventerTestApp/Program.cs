@@ -22,7 +22,7 @@ namespace EventerTestApp
 
         static void GenerateLogs()
         {
-            EventFactory _e = new EventFactory("LogGeneratorSample", true);
+            EventFactory _e = new EventFactory("LogGeneratorSample");
 
             // Setup event factory with three fields
             _e.Fields.Add(new EventFieldDefinition("message", false));
@@ -34,9 +34,9 @@ namespace EventerTestApp
 
             // Fill the newly created event
             _ev["message"].Value = "This is a sample message";
-            _ev["level"].Value = "verbose";
+            //_ev["level"].Value = "verbose";
             _ev["status"].SetValue(200);
-
+            
 
             Console.WriteLine("\n" + _e.Flush());
 

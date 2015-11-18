@@ -74,9 +74,7 @@ namespace DotNetEventer
         {
             get
             {
-
                 return _fieldValue;
-
             }
             set
             {

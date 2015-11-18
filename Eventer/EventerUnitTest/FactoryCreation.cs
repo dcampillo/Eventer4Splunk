@@ -17,7 +17,7 @@ namespace EventerUnitTest
             EventFactory _ef = CreateEventFactory(true); 
 
             // Check if AppendCorrelationID is set to true
-            if (_ef.AppendCorrelationID == false)
+            if (_ef.AppendTransactionID == false)
             {
                 Assert.Fail("AppendCorrelationID = false, must be true!");
             }
@@ -34,7 +34,7 @@ namespace EventerUnitTest
 
 
             // Check if AppendCorrelationID is set to true
-            if (_ef.AppendCorrelationID == true)
+            if (_ef.AppendTransactionID == true)
             {
                 Assert.Fail("AppendCorrelationID = true, must be false!");
             }

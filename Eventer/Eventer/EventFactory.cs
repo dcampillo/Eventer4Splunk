@@ -11,9 +11,9 @@ namespace DotNetEventer
 
 
         private List<EventFieldDefinition> _fields = new List<EventFieldDefinition>();
-        private bool _appendCorrelationID = false;
-        private string _correlationID = Guid.NewGuid().ToString();
-        private string _correlationIDFieldName = "correlationid";
+        private bool _appendTransactionID = false;
+        private string _transactionID = Guid.NewGuid().ToString();
+        private string transactionIDFieldName = "transactionid";
         private const string _applicationNameField = "application";
         private string _applicationName;
         private EventQueue _queue = new EventQueue();
@@ -35,7 +35,7 @@ namespace DotNetEventer
         /// <param name="AppendCorrelationID">Indicates if the factory will append a CorrelationID field to each new event</param>
         public EventFactory(string ApplicationName, bool AppendCorrelationID)
         {
-            _appendCorrelationID = AppendCorrelationID;
+            _appendTransactionID = AppendCorrelationID;
             _applicationName = ApplicationName;
             _fields.Add(new EventFieldDefinition(_applicationNameField, false));
         }
@@ -63,17 +63,17 @@ namespace DotNetEventer
         /// <summary>
         /// Initialize a new Event
         /// </summary>
-        /// <param name="SetNewCorrelationID">Indicate that the Correlation ID must be renewed</param>
+        /// <param name="SetNewTransactionID">Indicate that the Correlation ID must be renewed</param>
         /// <returns>An initialized event containing all field definition</returns>
-        public Event NewEvent(bool SetNewCorrelationID)
+        public Event NewEvent(bool SetNewTransactionID)
         {
             //Event _event = new Event();
             Event _event;
             _event = _queue.AddEvent();
 
-            if (SetNewCorrelationID)
+            if (SetNewTransactionID)
             {
-                _correlationID = Guid.NewGuid().ToString();
+                _transactionID = Guid.NewGuid().ToString();
             }
 
             //_event.Fields.Add(new EventField(_timestampFieldName, DateTime.Now.ToString()));
@@ -91,74 +91,134 @@ namespace DotNetEventer
             // Set application name value
             _event[_applicationNameField].Value = _applicationName;
 
-            if (_appendCorrelationID)
+            if (_appendTransactionID)
             {
-                _event.Fields.Add(new EventField(_correlationIDFieldName, _correlationID.ToString()));
+                _event.Fields.Add(new EventField(transactionIDFieldName, _transactionID.ToString()));
             }
 
             return _event;
 
         }
 
+        [Obsolete("Procedure GenerateNewCorrelationID is obsolete, use GenerateNewTransactionID instead")]
         public string GenerateNewCorrelationID()
         {
-            _correlationID = Guid.NewGuid().ToString();
-            return _correlationID.ToString();
+            _transactionID = Guid.NewGuid().ToString();
+            return _transactionID.ToString();
         }
+
+        public string GenerateNewTransactionID()
+        {
+            _transactionID = Guid.NewGuid().ToString();
+            return _transactionID.ToString();
+        }
+
+
 
         /// <summary>
         /// Get the bool value indicating if the factory will append a CorrelationID field to each new event
         /// </summary>
+        /// 
+        [Obsolete("Property AppendTransactionID is obsolete, use AppendTransactionID instead")]
         public bool AppendCorrelationID
         {
             get
             {
-                return _appendCorrelationID;
+                return _appendTransactionID;
             }
             set
             {
-                _appendCorrelationID = value;
+                _appendTransactionID = value;
+            }
+        }
+
+        public bool AppendTransactionID
+        {
+            get
+            {
+                return _appendTransactionID;
+            }
+            set
+            {
+                _appendTransactionID = value;
             }
         }
 
         /// <summary>
         /// Gets or sets a string coresponding to the name of the Correlation ID field. Default is correlationid
         /// </summary>
+        /// 
+        [Obsolete("Property CorrelationIDFieldName is obsolete, use TransactionIDFieldName instead")]
         public string CorrelationIDFieldName
         {
             get
             {
-                return _correlationIDFieldName;
+                return transactionIDFieldName;
             }
             set
             {
-                _correlationIDFieldName = value;
+                transactionIDFieldName = value;
             }
         }
 
+        public string TransactionIDFieldName
+        {
+            get
+            {
+                return transactionIDFieldName;
+            }
+            set
+            {
+                transactionIDFieldName = value;
+            }
+        }
+
+        [Obsolete("Property CorrelationID is obsolete, use TransactionID instead")]
         public string CorrelationID
         {
             get
             {
-                return _correlationID;
+                return _transactionID;
             }
             set
             {
-                _correlationID = value;
+                _transactionID = value;
             }
+        }
+
+        public string TransactionID
+        {
+            get
+            {
+                return _transactionID;
+            }
+            set
+            {
+                _transactionID = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string Flush()
+        {
+            return this.Flush(false);
         }
 
         /// <summary>
         /// Render all events
         /// </summary>
+        /// <param name="RenderEmptyField">Redner null or empty field. Default = false</param>
         /// <returns>Event rendered as string</returns>
-        public string Flush()
+        public string Flush(bool RenderEmptyField)
         {
             StringBuilder _sb = new StringBuilder();
 
             while (_queue.Count != 0)
             {
-                _sb.AppendLine( _queue.Dequeue().Render());
+                _sb.AppendLine(_queue.Dequeue().Render(RenderEmptyField));
             }
 
             return _sb.ToString();

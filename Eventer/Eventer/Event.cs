@@ -61,12 +61,16 @@ namespace DotNetEventer
             }
         }
 
-
+        public string Render()
+        {
+            return this.Render(false);
+        }
         /// <summary>
         /// Render a full event in Splunk format
         /// </summary>
+        /// <param name="RenderEmptyField">If true, render null or empty field. Default = false</param>
         /// <returns>A string representing the event in a Splunk format</returns>
-        public string Render()
+        public string Render(bool RenderEmptyField)
         {
 
             StringBuilder _sb = new StringBuilder();
@@ -76,7 +80,16 @@ namespace DotNetEventer
             //Append every existing fields
             foreach (DotNetEventer.EventField _field in Fields)
             {
-                if (_field.Value != null)
+
+              
+                if (string.IsNullOrEmpty(_field.Value))
+                {
+                    if (RenderEmptyField == true)
+                    {
+                        _sb.Append(string.Format("{0}={1} ", _field.Name, FormatValue(_field)));
+                    }
+                }
+                else
                 {
                     _sb.Append(string.Format("{0}={1} ", _field.Name, FormatValue(_field)));
                 }
@@ -93,23 +106,29 @@ namespace DotNetEventer
         /// <returns>A string representing a formated value</returns>
         private string FormatValue(DotNetEventer.EventField EventField)
         {
-
-
-            if (EventField.IsNumber)
+            if (EventField.Value == null)
             {
-                return EventField.Value;
+                return "";
             }
             else
             {
-                Regex regexItem = new Regex("^[a-zA-Z0-9]*$");
 
-                if (regexItem.IsMatch(EventField.Value))
+                if (EventField.IsNumber)
                 {
                     return EventField.Value;
                 }
                 else
                 {
-                    return string.Format("\"{0}\"", EventField.Value);
+                    Regex regexItem = new Regex("^[a-zA-Z0-9]*$");
+
+                    if (regexItem.IsMatch(EventField.Value))
+                    {
+                        return EventField.Value;
+                    }
+                    else
+                    {
+                        return string.Format("\"{0}\"", EventField.Value);
+                    }
                 }
             }
 
