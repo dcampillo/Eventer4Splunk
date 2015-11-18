@@ -6,7 +6,7 @@ namespace DotNetEventer
 {
 
 
-    public class EventFactory
+    public class EventFactory : IDisposable
     {
 
 
@@ -164,5 +164,10 @@ namespace DotNetEventer
             return _sb.ToString();
         }
 
+        public void Dispose()
+        {
+            _queue.Clear();
+            _fields.Clear();
+        }
     }
 }
