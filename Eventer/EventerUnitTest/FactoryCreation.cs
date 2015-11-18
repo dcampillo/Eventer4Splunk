@@ -6,18 +6,15 @@ using DotNetEventer;
 namespace EventerUnitTest
 {
     [TestClass]
-    public class UTMain
+    public class FactoryCreation
     {
         const string _applicationName = "UnitTestApp";
         const string _applicationNameField = "application";
 
-
-
         [TestMethod]
         public void FactoryCreationWithTransaction()
         {
-            EventFactory _ef = new EventFactory(_applicationName, true);
-            
+            EventFactory _ef = CreateEventFactory(true); 
 
             // Check if AppendCorrelationID is set to true
             if (_ef.AppendCorrelationID == false)
@@ -26,8 +23,6 @@ namespace EventerUnitTest
             }
 
             CheckForField(_ef, _applicationNameField);
-            
-            
 
 
         }
@@ -35,7 +30,7 @@ namespace EventerUnitTest
         [TestMethod]
         public void FactoryCreationWithNoTransaction()
         {
-            EventFactory _ef = new EventFactory(_applicationName, false);
+            EventFactory _ef = CreateEventFactory( false);
 
 
             // Check if AppendCorrelationID is set to true
@@ -45,13 +40,12 @@ namespace EventerUnitTest
             }
 
             CheckForField(_ef, _applicationNameField);
-
         }
 
         public void CheckForField(EventFactory EF, string FieldName)
         {
             bool _fieldFound = false;
-             // Check if Application name field definition was created
+            // Check if Application name field definition was created
             foreach (EventFieldDefinition _field in EF.Fields)
             {
                 if (_field.Name == FieldName)
@@ -65,6 +59,11 @@ namespace EventerUnitTest
             {
                 Assert.Fail(string.Format("Field '{0}' doesn't not extist, must exist!", FieldName));
             }
+        }
+
+        public static EventFactory CreateEventFactory(bool AppendCorrelationID)
+        {
+            return new EventFactory(_applicationName, AppendCorrelationID);
         }
     }
 }
