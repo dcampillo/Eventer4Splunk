@@ -11,3 +11,4 @@ Features:
 - Support Transaction
 - Available as a Nuget Package : https://www.nuget.org/packages/Eventer4Splunk/
 
+Documentation & Examples are available in the wiki https://github.com/dcampillo/Eventer4Splunk/wiki
