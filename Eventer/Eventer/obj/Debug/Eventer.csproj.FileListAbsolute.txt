@@ -11,3 +11,8 @@ K:\Eventer4Splunk-master\Eventer\Eventer\bin\Debug\Eventer.dll
 K:\Eventer4Splunk-master\Eventer\Eventer\bin\Debug\Eventer.pdb
 K:\Eventer4Splunk-master\Eventer\Eventer\obj\Debug\Eventer.dll
 K:\Eventer4Splunk-master\Eventer\Eventer\obj\Debug\Eventer.pdb
+C:\GitHub\Eventer4Splunk\Eventer\Eventer\bin\Debug\Eventer.dll
+C:\GitHub\Eventer4Splunk\Eventer\Eventer\bin\Debug\Eventer.pdb
+C:\GitHub\Eventer4Splunk\Eventer\Eventer\obj\Debug\Eventer.dll
+C:\GitHub\Eventer4Splunk\Eventer\Eventer\obj\Debug\Eventer.pdb
+C:\GitHub\Eventer4Splunk\Eventer\Eventer\obj\Debug\Eventer.csprojResolveAssemblyReference.cache
